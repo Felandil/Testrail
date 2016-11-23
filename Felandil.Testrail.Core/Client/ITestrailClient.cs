@@ -15,6 +15,14 @@ namespace Felandil.Testrail.Core.Client
     #region Public Methods and Operators
 
     /// <summary>
+    /// The end suite run.
+    /// </summary>
+    /// <param name="runid">
+    /// The runid.
+    /// </param>
+    void EndSuiteRun(int runid);
+
+    /// <summary>
     /// The get testcase.
     /// </summary>
     /// <param name="id">
@@ -28,10 +36,19 @@ namespace Felandil.Testrail.Core.Client
     /// <summary>
     /// The post testcase result.
     /// </summary>
-    /// <param name="testcase">
-    /// The testcase.
+    /// <param name="runId">
+    /// The run Id.
     /// </param>
-    void PostTestcaseResult(Testcase testcase);
+    /// <param name="testcaseId">
+    /// The testcase Id.
+    /// </param>
+    /// <param name="status">
+    /// The status.
+    /// </param>
+    /// <param name="summary">
+    /// The summary.
+    /// </param>
+    void PostTestcaseResult(int runId, int testcaseId, int status, string summary);
 
     /// <summary>
     /// The start suite run.

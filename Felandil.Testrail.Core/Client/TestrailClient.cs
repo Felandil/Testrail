@@ -53,6 +53,17 @@ namespace Felandil.Testrail.Core.Client
     #region Public Methods and Operators
 
     /// <summary>
+    /// The end suite run.
+    /// </summary>
+    /// <param name="runid">
+    /// The runid.
+    /// </param>
+    public void EndSuiteRun(int runid)
+    {
+      this.InternalClient.SendPost(string.Format("close_run/{0}", runid), null);
+    }
+
+    /// <summary>
     /// The get testcase.
     /// </summary>
     /// <param name="id">
@@ -70,13 +81,22 @@ namespace Felandil.Testrail.Core.Client
     /// <summary>
     /// The post testcase result.
     /// </summary>
-    /// <param name="testcase">
-    /// The testcase.
+    /// <param name="runId">
+    /// The run id.
     /// </param>
-    public void PostTestcaseResult(Testcase testcase)
+    /// <param name="testcaseId">
+    /// The testcase id.
+    /// </param>
+    /// <param name="status">
+    /// The status.
+    /// </param>
+    /// <param name="summary">
+    /// The summary.
+    /// </param>
+    public void PostTestcaseResult(int runId, int testcaseId, int status, string summary)
     {
-      var data = new Dictionary<string, object> { { "status_id", 1 }, { "comment", testcase.Summary } };
-      this.InternalClient.SendPost(string.Format("add_result_for_case/1/{0}", testcase.Id), data);
+      var data = new Dictionary<string, object> { { "status_id", status }, { "comment", summary } };
+      this.InternalClient.SendPost(string.Format("add_result_for_case/{0}/{1}", runId, testcaseId), data);
     }
 
     /// <summary>

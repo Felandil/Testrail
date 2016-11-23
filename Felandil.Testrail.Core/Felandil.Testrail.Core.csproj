@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Client\TestrailClient.cs" />
     <Compile Include="Entity\Testcase.cs" />
+    <Compile Include="Entity\Teststatus.cs" />
     <Compile Include="Entity\Testsuite.cs" />
     <Compile Include="Client\ITestrailClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

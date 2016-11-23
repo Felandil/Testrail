@@ -40,6 +40,32 @@ namespace Felandil.Testrail.Core.Service
     #region Public Methods and Operators
 
     /// <summary>
+    /// The end suite.
+    /// </summary>
+    /// <param name="suite">
+    /// The suite.
+    /// </param>
+    public void EndSuite(Testsuite suite)
+    {
+      this.TestrailClient.EndSuiteRun(suite.CurrentRunId);
+      suite.CurrentRunId = Testsuite.DefaultRunId;
+    }
+
+    /// <summary>
+    /// The post test result.
+    /// </summary>
+    /// <param name="testcase">
+    /// The testcase.
+    /// </param>
+    /// <param name="runId">
+    /// The run id.
+    /// </param>
+    public void PostTestResult(Testcase testcase, int runId)
+    {
+      this.TestrailClient.PostTestcaseResult(runId, testcase.Id, (int)testcase.Status, testcase.Summary);
+    }
+
+    /// <summary>
     /// The start suite.
     /// </summary>
     /// <param name="suite">

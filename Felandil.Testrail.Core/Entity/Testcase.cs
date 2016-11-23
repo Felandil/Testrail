@@ -32,6 +32,11 @@ namespace Felandil.Testrail.Core.Entity
     public int Id { get; set; }
 
     /// <summary>
+    /// Gets or sets the status.
+    /// </summary>
+    public Teststatus Status { get; set; }
+
+    /// <summary>
     /// Gets the summary.
     /// </summary>
     public string Summary

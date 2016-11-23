@@ -12,6 +12,15 @@ namespace Felandil.Testrail.Core.Entity
   /// </summary>
   public class Testsuite
   {
+    #region Constants
+
+    /// <summary>
+    /// The default run id.
+    /// </summary>
+    public const int DefaultRunId = -1;
+
+    #endregion
+
     #region Constructors and Destructors
 
     /// <summary>
@@ -27,7 +36,7 @@ namespace Felandil.Testrail.Core.Entity
     {
       this.Name = name;
       this.ProjectId = projectId;
-      this.CurrentRunId = -1;
+      this.CurrentRunId = DefaultRunId;
     }
 
     #endregion
